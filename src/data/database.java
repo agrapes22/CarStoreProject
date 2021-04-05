@@ -8,13 +8,13 @@ import java.util.Scanner;
 
 import beans.User;
 
-public class Database 
+public class database 
 {
 	private File userData = new File("userData.txt");
 	
 	private List<User> users = new ArrayList<>();
 	
-	public Database()
+	public database()
 	{
 		try 
 		{
@@ -116,6 +116,12 @@ public class Database
 		writeFile();
 		
 		return true;
+	}
+
+	public void register(String firstName, String lastName, String email, String address, String phoneNumber,
+			String userName, String passWord) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -10,7 +10,7 @@ import beans.User;
 
 @ManagedBean
 @ViewScoped
-public class RegistrationController {
+public class registrationController {
 	
 	public String onSubmit() {
 		// Gets the user values from the input form
