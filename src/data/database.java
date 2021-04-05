@@ -98,21 +98,20 @@ public class Database
 		return false;
 	}
 	
-	public boolean register(String firstName, String lastName, String email, String address, String phoneNumber, String userName,
-			String passWord)
+	public boolean register(User user)
 	{
 		for (User u : users)
 		{
-			String user = u.getUserName();
+			String userN = u.getUserName();
 			String pass = u.getPassWord();
 			
-			if (userName == user)
+			if (userN == user.getUserName())
 			{
 				return false;
 			}	
 		}
 		
-		users.add(new User(firstName, lastName, email, address, phoneNumber, userName, passWord));
+		users.add(user);
 		
 		writeFile();
 		

@@ -1,5 +1,7 @@
 package controllers;
 
+import java.io.FileNotFoundException;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -20,7 +22,14 @@ public class RegistrationController {
 		
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().replace("user", user);
 		
-		System.out.println(user.getAddress());
+		try {
+			user.getData().readFile();
+			boolean in = user.getData().register(user);
+			System.out.println(in);
+		} catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
 		
 		// Show next page
 		return "productPage.xhtml";
