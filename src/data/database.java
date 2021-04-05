@@ -2,20 +2,27 @@ package data;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.Scanner;
 
 import beans.User;
 
-public class database 
+public class Database 
 {
 	private File userData = new File("userData.txt");
 	
 	private List<User> users = new ArrayList<>();
 	
-	public database()
+	public Database()
 	{
-		
+		try 
+		{
+			readFile();
+		} catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	public void readFile() throws FileNotFoundException
@@ -38,6 +45,40 @@ public class database
 			
 			users.add(new User(fN, lN, email, address, phoneNum, userNam, pass));
 		}
+	}
+	
+	public void writeFile()
+	{
+		PrintWriter out;
+		try {
+			out = new PrintWriter(userData);
+
+			for (User u : users)
+			{
+				out.print(u.getFirstName());
+				out.print("|");
+				out.print(u.getLastName());
+				out.print("|");
+				out.print(u.getEmail());
+				out.print("|");
+				out.print(u.getAddress());
+				out.print("|");
+				out.print(u.getPhoneNumber());
+				out.print("|");
+				out.print(u.getUserName());
+				out.print("|");
+				out.print(u.getPassWord());
+				out.print("\n");
+			}
+			
+			out.close();
+			
+		} catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	public boolean signIn(String user, String pass)
@@ -71,7 +112,10 @@ public class database
 			}	
 		}
 		
-		User newUser = new User(firstName, lastName, email, address, phoneNumber, userName, passWord);
+		users.add(new User(firstName, lastName, email, address, phoneNumber, userName, passWord));
+		
+		writeFile();
+		
 		return true;
 	}
 	

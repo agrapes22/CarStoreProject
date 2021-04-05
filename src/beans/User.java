@@ -2,9 +2,14 @@ package beans;
 
 import javax.faces.bean.ManagedBean;
 
+import data.Database;
+
 @ManagedBean
 public class User {
+	
 	private String firstName, lastName, email, address, phoneNumber, userName, passWord;
+	
+	Database data = new Database();
 	
 	public User() {
 		firstName = "";
@@ -26,6 +31,8 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.userName = userName;
 		this.passWord = passWord;
+		
+		data.register(firstName, lastName, email, address, phoneNumber, userName, passWord);
 	}
 
 	public String getFirstName() {
@@ -82,6 +89,11 @@ public class User {
 
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
+	}
+	
+	public Database getData()
+	{
+		return data;
 	}
 }
 
