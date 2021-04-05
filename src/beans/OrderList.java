@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
-//adding a note to test BitBucket
 
 @ManagedBean
 public class OrderList {
