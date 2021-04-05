@@ -7,6 +7,7 @@ public class Order {
 	int quantity = 0;
 	
 	public Order(String orderNo, String productName, float price, int quantity) {
+		super();
 		this.orderNo = orderNo;
 		this.productName = productName;
 		this.price = price; 

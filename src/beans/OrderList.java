@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
+//adding a note to test BitBucket
+
 @ManagedBean
 public class OrderList {
-	List <Order> orders = new ArrayList<Order>();
+	List<Order> orders = new ArrayList<Order>();
 	
 	public OrderList() {
 		orders.add(new Order("0000000001", "This is product 1", (float)1.00, 1));
