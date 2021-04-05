@@ -6,10 +6,11 @@
 	<ui:composition template="/layouts/commonLayout.xhtml">
 		<ui:define name="content">
 			<h:form>
-				First Name:<h:inputText value="#{user.firstName}"/>
-				Last Name: <h:inputText value="#{user.lastName}"/>
+				Username:<h:inputText value="#{user.firstName}"/>
+				Password: <h:inputText value="#{user.lastName}"/>
 				<h:commandButton action="#{loginController.onSubmit()}" value="Submit" />
 			</h:form>
+			
 		</ui:define>
 	</ui:composition>
 </body>

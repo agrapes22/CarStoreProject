@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+	  
+<style>
+.background-color = cornflower blue;
+</style>	  
+
+<h:head>
+	<h:outputStylesheet name = "/css/styles.css"/>
+</h:head>
+
+<h:body>
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+	
+		<h:title>Welcome to the Car Store!</h:title>
+		
+		<ul id = "list-nav">
+		<li><a href = "login.xhtml">Login</a></li>
+		<li><a href = "register.xhtml">Register</a></li>
+		</ul>
+		
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
