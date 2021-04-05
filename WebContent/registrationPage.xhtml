@@ -3,19 +3,8 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html">
 <body>
-	<ui:composition template="/layouts/commonLayout.xhtml">
-		<ui:define name="content">
-			<h:form>
-				First Name:<h:inputText value="#{user.firstName}"/>
-				Last Name: <h:inputText value="#{user.lastName}"/>
-				Last Name: <h:inputText value="#{user.lastName}"/>
-				Last Name: <h:inputText value="#{user.lastName}"/>
-				Last Name: <h:inputText value="#{user.lastName}"/>
-				Last Name: <h:inputText value="#{user.lastName}"/>
-				Last Name: <h:inputText value="#{user.lastName}"/>
-				<h:commandButton action="#{loginController.onSubmit()}" value="Register" />
-			</h:form>
-		</ui:define>
+	<ui:composition template="/layouts/commonRegistration.xhtml">
+
 	</ui:composition>
 </body>
 </html>
