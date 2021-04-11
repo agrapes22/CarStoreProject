@@ -6,8 +6,8 @@
 	<ui:composition template="/layouts/commonLayout.xhtml">
 		<ui:define name="content">
 			<h:form>
-				Username:<h:inputText value="#{user.firstName}"/>
-				Password: <h:inputText value="#{user.lastName}"/>
+				Username:<h:inputText value="#{loginController.services.user.userName}"/>
+				Password: <h:inputText value="#{loginController.services.user.passWord}"/>
 				<h:commandButton action="#{loginController.onSubmit()}" value="Submit" />
 			</h:form>
 			
