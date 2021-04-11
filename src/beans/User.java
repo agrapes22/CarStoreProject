@@ -3,14 +3,13 @@ package beans;
 import javax.faces.bean.ManagedBean;
 
 import data.Database;
-import data.database;
 
 @ManagedBean
 public class User {
 	
 	private String firstName, lastName, email, address, phoneNumber, userName, passWord;
 	
-	database data = new database();
+	Database data = new Database();
 	
 	public User() {
 		firstName = "";
@@ -92,7 +91,7 @@ public class User {
 		this.passWord = passWord;
 	}
 	
-	public database getData()
+	public Database getData()
 	{
 		return data;
 	}
