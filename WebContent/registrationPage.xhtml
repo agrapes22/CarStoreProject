@@ -7,25 +7,25 @@
 		<ui:define name="content">
 		<h:form>
 			<p>
-				First Name:<h:inputText value="#{user.firstName}"/>
+				First Name:<h:inputText value="#{registrationController.services.user.firstName}"/>
 			</p>
 			<p>
-				Last Name: <h:inputText value="#{user.lastName}"/>
+				Last Name: <h:inputText value="#{registrationController.services.user.lastName}"/>
 			</p>
 			<p>
-				Email: <h:inputText value="#{user.email}"/>
+				Email: <h:inputText value="#{registrationController.services.user.email}"/>
 			</p>
 			<p>
-				Address: <h:inputText value="#{user.address}"/>
+				Address: <h:inputText value="#{registrationController.services.user.address}"/>
 			</p>
 			<p>
-				Phone Number: <h:inputText value="#{user.phoneNumber}"/>
+				Phone Number: <h:inputText value="#{registrationController.services.user.phoneNumber}"/>
 			</p>
 			<p>
-				Username: <h:inputText value="#{user.userName}"/>
+				Username: <h:inputText value="#{registrationController.services.user.userName}"/>
 			</p>
 			<p>
-				Password: <h:inputText value="#{user.passWord}"/>
+				Password: <h:inputText value="#{registrationController.services.user.passWord}"/>
 			</p>
 			<p>
 				<h:commandButton action="#{registrationController.onSubmit()}" value="Register" />

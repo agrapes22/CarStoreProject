@@ -5,12 +5,16 @@ import java.io.FileNotFoundException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 import beans.User;
+import business.UserInterface;
 
 @ManagedBean
 @ViewScoped
 public class registrationController {
+	@Inject
+	UserInterface services;
 	
 	public String onSubmit() {
 		// Gets the user values from the input form
@@ -31,6 +35,10 @@ public class registrationController {
 		
 		// Show next page
 		return "productPage.xhtml";
+	}
+	
+	public UserInterface getServices() {
+		return services; 
 	}
 }
 
