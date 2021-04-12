@@ -2,7 +2,7 @@ package beans;
 
 import javax.faces.bean.ManagedBean;
 
-import data1.Database;
+import data.Database;
 
 @ManagedBean
 public class User {
