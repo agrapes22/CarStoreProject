@@ -2,7 +2,6 @@ package data;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.*;
 import java.util.Scanner;
 
@@ -16,13 +15,7 @@ public class Database
 	
 	public Database()
 	{
-		try 
-		{
-			readFile();
-		} catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public void readFile() throws FileNotFoundException
@@ -47,40 +40,6 @@ public class Database
 		}
 	}
 	
-	public void writeFile()
-	{
-		PrintWriter out;
-		try {
-			out = new PrintWriter(userData);
-
-			for (User u : users)
-			{
-				out.print(u.getFirstName());
-				out.print("|");
-				out.print(u.getLastName());
-				out.print("|");
-				out.print(u.getEmail());
-				out.print("|");
-				out.print(u.getAddress());
-				out.print("|");
-				out.print(u.getPhoneNumber());
-				out.print("|");
-				out.print(u.getUserName());
-				out.print("|");
-				out.print(u.getPassWord());
-				out.print("\n");
-			}
-			
-			out.close();
-			
-		} catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
-		}
-		
-		
-	}
-	
 	public boolean signIn(String user, String pass)
 	{
 		for (User u : users)
@@ -98,29 +57,22 @@ public class Database
 		return false;
 	}
 	
-	public boolean register(User user)
+	public boolean register(String firstName, String lastName, String email, String address, String phoneNumber, String userName,
+			String passWord)
 	{
 		for (User u : users)
 		{
-			String userN = u.getUserName();
+			String user = u.getUserName();
 			String pass = u.getPassWord();
 			
-			if (userN == user.getUserName())
+			if (userName == user)
 			{
 				return false;
 			}	
 		}
 		
-		users.add(user);
-		
-		writeFile();
-		
+		User newUser = new User(firstName, lastName, email, address, phoneNumber, userName, passWord);
 		return true;
-	}
-
-	public void register(String firstName, String lastName, String email, String address, String phoneNumber,
-			String userName, String passWord) {
-		
 	}
 	
 }
