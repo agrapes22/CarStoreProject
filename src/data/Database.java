@@ -75,5 +75,21 @@ public class Database
 		return true;
 	}
 	
+	public boolean register(User user)
+	{
+		for (User u : users)
+		{
+			String us = user.getUserName();
+			String p = user.getPassWord();
+			
+			if (us == user.getUserName())
+			{
+				return false;
+			}	
+		}
+		
+		return true;
+	}
+	
 	
 }

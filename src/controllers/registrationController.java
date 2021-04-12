@@ -18,9 +18,7 @@ public class registrationController {
 		User user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		
 		// put the user object into the POST request
-		//FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
-		
-		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().replace("user", user);
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 		
 		try {
 			user.getData().readFile();
@@ -35,3 +33,4 @@ public class registrationController {
 		return "productPage.xhtml";
 	}
 }
+

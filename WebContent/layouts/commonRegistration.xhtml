@@ -3,7 +3,9 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html">
 
-	<ui:composition>
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+		<center>
 		<h:form>
 			<p>
 				First Name:<h:inputText value="#{user.firstName}"/>
@@ -27,8 +29,10 @@
 				Password: <h:inputText value="#{user.passWord}"/>
 			</p>
 			<p>
-				<h:commandButton action="#{registrationController.onSubmit()}" value="Register" />
+				<h:commandButton action="#{registrationController}" value="Register" />
 			</p>
 		</h:form>
+		</center>
+		</ui:define>
 	</ui:composition>
 </html>
