@@ -5,28 +5,33 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class Car 
 {
+	int id;
 	String make;
 	String model;
 	String color;
 	String year;
 	String miles;
 
-	public Car()
-	{
-		make = "";
-		model = "";
-		color = "";
-		year = "";
-		miles = "";
+	public Car() {
+		
 	}
-	
-	public Car(String make, String model, String color, String year, String miles) {
+
+	public Car(int id, String make, String model, String color, String year, String miles) {
 		super();
+		this.id = id;
 		this.make = make;
 		this.model = model;
 		this.color = color;
 		this.year = year;
 		this.miles = miles;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getMake() {
@@ -68,6 +73,4 @@ public class Car
 	public void setMiles(String miles) {
 		this.miles = miles;
 	}
-	
-	
 }

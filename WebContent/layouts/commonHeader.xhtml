@@ -6,6 +6,12 @@
 	<h:outputStylesheet>name = "css/styles.css"</h:outputStylesheet>
 </h:head>
 	<ui:composition>
+	<div class = "topmenu">
+	 		<h:form>
+	 			<h:commandButton action="#{carController.showNewProductForm()}" value="Create a new Thing" />
+	 			<h:commandButton action="#{carController.showProductPage()}" value="Show All" />
+	 		</h:form>
+	 	</div>
 		<h1>The Car Store</h1>
 	</ui:composition>
 </html>

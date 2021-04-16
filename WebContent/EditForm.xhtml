@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+	  
+	  <h:head>
+	  	<h:outputStylesheet library = "css" name = "styles.css"></h:outputStylesheet>
+	  </h:head>
+	  
+	  <body>
+	  	 <div class = "topmenu">
+	 		<h:form>
+	 			<h:commandButton action="#{formController.showEntryForm()}" value="Create a new Thing" />
+	 			<h:commandButton action="#{formController.showIndexForm()}" value="Show All" />
+	 		</h:form>
+	 	</div>
+	 	
+	  	<h1>Make changes</h1>
+	  	
+	  	<div class = "inputform">
+	  		<h:form>
+	  			<h:inputHidden value="#{car.id}" />
+	  			
+	  			<p>
+	  				Input the Make:
+	  				<h:inputText value="#{car.make}" />
+	  			</p>
+	  			
+	  			<p>
+	  				Input the Model:
+	  				<h:inputText value="#{car.model}" />
+	  			</p>
+	  			
+	  			<p>
+	  				Input the Color:
+					<h:inputText value="#{car.color}" />
+	  			</p>
+	  			
+	  			<p>
+	  				Input the Year:
+					<h:inputText value="#{car.year}" />
+	  			</p>
+	  			
+	  			<p>
+	  				Input the Mileage:
+					<h:inputText value="#{car.miles}" />
+	  			</p>
+	  			
+	  			<p>
+	  				<h:commandButton action="#{carController.onSubmitEdit()}" value="Submit" />
+	  			</p>
+	  		</h:form>
+	  	</div>
+	  </body>
+</html>

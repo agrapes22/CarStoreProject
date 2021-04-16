@@ -2,47 +2,61 @@
 	  xmlns:ui="http://java.sun.com/jsf/facelets"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html">
-	  
-	  <head>
-	  	<style>
-	  		.order-table{
-	  			border:1px black solid
-	  		}
-	  		
-	  		.order-table-odd{
-	  			background: lightblue;
-	  		}
-	  		
-	  		.order-table-header {
-	  			font-weight:bold;
-	  		}
-	  	</style>
-	  </head>
-<body>
-	<h1>Response Page</h1>
-	<p>Hello #{user.firstName}.</p>
-	<p>Your last name is #{user.lastName}.</p>
-	
-	<h:dataTable value="#{orderList.orders}" var="o" styleClass="order-table" headerClass = "order-table-header" rowClasses = "order-table-odd, order-table-even">
-		<h:column>
-			<f:facet name = "header">Order Number</f:facet>
-			#{o.orderNo}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Product Name</f:facet>
-			#{o.productName}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Price</f:facet>
-			#{o.price}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Quantity</f:facet>
-			#{o.quantity}
-		</h:column>
-	</h:dataTable>
-</body>
+
+	<body>
+	 	<div class = "topmenu">
+	 		<h:form>
+	 			<h:commandButton action="#{formController.showEntryForm()}" value="Create a new Thing" />
+	 			<h:commandButton action="#{formController.showIndexForm()}" value="Show All" />
+	 		</h:form>
+	 	</div>
+	 	
+	 	<h2 class = "centeredheadline">List of All Cars</h2>
+	 
+		<h:dataTable value="#{carController.getAll()}" var = "car">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{car.id}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Make</f:facet>
+				<h:outputText value="#{car.make}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Model</f:facet>
+				<h:outputText value="#{car.model}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Color</f:facet>
+				<h:outputText value="#{car.color}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Year</f:facet>
+				<h:outputText value="#{car.year}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Miles</f:facet>
+				<h:outputText value="#{car.miles}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Delete</f:facet>
+					<h:form>
+						<h:commandButton action="#{carController.onDelete(car)}" value="Delete" />
+					</h:form>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Edit</f:facet>
+					<h:form>
+						<h:commandButton action="#{carController.onShowEdit(car)}" value="Edit" />
+					</h:form>
+			</h:column>
+		</h:dataTable>
+	 </body>
 </html>
