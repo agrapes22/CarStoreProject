@@ -4,12 +4,9 @@
 	  xmlns:h="http://java.sun.com/jsf/html">
 
 	<body>
-	 	<div class = "topmenu">
-	 		<h:form>
-	 			<h:commandButton action="#{formController.showEntryForm()}" value="Create a new Thing" />
-	 			<h:commandButton action="#{formController.showIndexForm()}" value="Show All" />
-	 		</h:form>
-	 	</div>
+	 	<ui:insert>
+	 		<ui:include src="/layouts/commonHeader.xhtml" />
+		</ui:insert>
 	 	
 	 	<h2 class = "centeredheadline">List of All Cars</h2>
 	 

@@ -2,7 +2,7 @@
     <wb-module deploy-name="CLC">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="CLC"/>
         <property name="java-output-path" value="/CLC/build/classes"/>
+        <property name="context-root" value="CarStoreProject"/>
     </wb-module>
 </project-modules>
