@@ -24,14 +24,10 @@ public class registrationController {
 		// put the user object into the POST request
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 		
-		try {
-			user.getData().readFile();
-			boolean in = user.getData().register(user);
-			System.out.println(in);
-		} catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
-		}
+		
+		user.getData().readAll();
+		//boolean in = user.getData().register(user);
+		//System.out.println(in);
 		
 		// Show next page
 		return "productPage.xhtml";
