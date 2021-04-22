@@ -12,6 +12,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 
+import beans.BeautifulThing;
 import beans.Car;
 
 @Stateless
@@ -233,5 +234,65 @@ public class DatabaseService implements DatabaseInterface {
 		}
 		
 		return numberOfRowsAffected; 
+	}
+
+	@Override
+	public Car readOne(int id) {
+		Car car = null;
+		
+		// database work
+		
+		Connection c = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			c = DriverManager.getConnection(dbURL, user, password);
+			System.out.println("Connection Successful " + dbURL + " " + user + " " + password); 
+			
+			// Create SQL Statement
+			stmt = c.prepareStatement("select * from carDatabase.carTable WHERE id = ?");
+			stmt.setInt(1, id);
+			
+			// Execute the Statement
+			rs = stmt.executeQuery();
+			
+			// Process the rows in the result set
+			while(rs.next()) {
+				System.out.println("ID = " + rs.getInt("car_id") + " Make = " + rs.getString("car_make") + " Model = "
+						+ rs.getString("car_model") + " Color = " + rs.getString("car_color") + " Year = " + rs.getString("car_year")
+						+ " Miles = " + rs.getString("car_miles"));
+				car = new Car(rs.getInt("car_id"), rs.getString("car_make"), rs.getString("car_model"),
+						rs.getString("car_color"), rs.getString("car_year"), rs.getString("car_miles"));
+			}
+ 			
+		} catch (SQLException e) {
+			System.out.println("ERROR");	
+			e.printStackTrace();
+		} finally {
+			// close the connection
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				c.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return car;
 	}
 }

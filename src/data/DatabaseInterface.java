@@ -12,4 +12,5 @@ public interface DatabaseInterface {
 	public int insertOne(Car car);
 	public ArrayList<Car> readAll();
 	public int updateOne(int d, Car car);
+	public Car readOne(int id);
 }

@@ -37,4 +37,9 @@ public class BusinessService1 implements BusinessServiceInterface {
 		return db.updateOne(d, car);
 	}
 
+	@Override
+	public Car readOne(int id) {
+		return db.readOne(id);
+	}
+
 }
