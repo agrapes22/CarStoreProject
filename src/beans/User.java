@@ -1,6 +1,10 @@
 package beans;
 
+import java.security.Principal;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import data.DatabaseService;
 
@@ -94,6 +98,23 @@ public class User {
 	public DatabaseService getData()
 	{
 		return data;
+	}
+	
+	@PostConstruct
+	public void init()
+	{
+		Principal principle= FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
+		if(principle == null)
+		{
+			setFirstName("Unknown");
+			setLastName("");
+		}
+		else
+		{
+			setFirstName(principle.getName());
+			setLastName("");
+		}
+
 	}
 }
 

@@ -5,9 +5,9 @@
 <body>
 	<ui:composition template="/layouts/commonLayout.xhtml">
 		<ui:define name="content">
-			<h:form>
-				Username:<h:inputText value="#{loginController.services.user.userName}"/>
-				Password: <h:inputText value="#{loginController.services.user.passWord}"/>
+			<h:form method="post" action="j_security_check">
+				Username:<h:inputText id="j_username" autocomplete ="off"/>
+				Password: <h:inputSecret id="j_password" autocomplete ="off"/>
 				<h:commandButton action="#{loginController.onSubmit()}" value="Submit" />
 			</h:form>
 			
